@@ -38,17 +38,5 @@ elif [[ ! -d $SAVE_PATH ]]; then
     mkdir $SAVE_PATH
 fi
 
-# Update Github Config.
-git config --global user.email "githubactionbot+wp@gmail.com" && git config --global user.name "WP Pot Generator"
-
 ## Generate POT File.
 wp i18n make-pot . "$SAVE_PATH/$DOMAIN.pot" --slug="$ITEM_SLUG" --package-name="$PACKAGE_NAME" --headers="$HEADERS" --domain="$DOMAIN" --allow-root
-
-# Add File To Commit
-git add -A
-
-# Add Commit Message
-git commit -m "WordPress POT File Created/Update"
-
-# Push To Github
-git push "https://x-access-token:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY" HEAD:$BRANCH
