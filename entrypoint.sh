@@ -18,11 +18,6 @@ if [[ -z "$SAVE_PATH" ]]; then
 	exit 1
 fi
 
-if [[ -z "$GITHUB_TOKEN" ]]; then
-	echo "Set the GITHUB_TOKEN env variable"
-	exit 1
-fi
-
 if [[ -z "$HEADERS" ]]; then
 	HEADERS='{}'
 fi
